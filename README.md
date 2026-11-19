@@ -1,6 +1,6 @@
 # Skyscraper CICO cryptanalysis
 
-SageMath implementation of the Gröbner basis pre-image attack on the Skyscraper hash function, from the thesis *Affine Cover Gröbner Basis Cryptanalysis of Lookup-Table AO Hash Functions*.
+SageMath implementation of the Gröbner basis pre-image attack on the Skyscraper hash function for my M.Sc. thesis on *Affine Cover Gröbner Basis Cryptanalysis of Lookup-Table AO Hash Functions*.
 
 ## Files
 
@@ -14,7 +14,7 @@ SageMath implementation of the Gröbner basis pre-image attack on the Skyscraper
 | `tests/`      | Selftest, search and benchmark tests |
 
 Notation in the code: `^` is power and `^^` is xor, as usual in Sage.
-The Square round is $x^2$ with no Montgomery constant, i.e., $\sigma = 1$.
+The Square round is x^2 with no Montgomery constant, i.e., sigma = 1.
 
 ## Commands
 
@@ -28,9 +28,9 @@ sage main.sage report                                                 # summarie
 
 | Variable | Values | Default |
 |---|---|---|
-| `SKY_P` | prime > $2^\omega$ | 587 |
+| `SKY_P` | prime > 2^omega | 587 |
 | `SKY_ROUNDS` | 6 (`SSBBSS`), 10 (`SSBBSSBBSS`), 18 (`SSSSSSBBSSBBSSSSSS`) | 6 |
-| `SKY_BITS` | chunk width $\omega$: 4 or 8 | 4 |
+| `SKY_BITS` | chunk width omega: 4 or 8 | 4 |
 | `SKY_GB` | any Sage GB algorithm, e.g. `magma:GroebnerBasis` or `msolve` if installed | `libsingular:slimgb` |
 | `SKY_LOG` | `error`, `warning`, `info`, `debug`, `trace` | `info` |
 | `SKY_LOG_FILE` | optional file that also receives debug detail | none |
@@ -49,7 +49,7 @@ sage main.sage report                                                 # summarie
 | `primes=37,109`, `rounds=6`, `bits=4` | Run the same command for several instances, one process each |
 | `seed`, `tag`, `out` | Reproducible random values, a separate series, another results folder |
 
-Results go to `results/p<P>_R<R>_omega<$omega$>/`, one append-only file per configuration, saved after every run, so nothing is lost on interruption and old data is never modified.
+Results go to `results/p<P>_R<R>_omega<omega>/`, one append-only file per configuration, saved after every run, so nothing is lost on interruption and old data is never modified.
 Summaries weigh every value once, however often it was repeated.
 For clean timings it's run one benchmark at a time: `taskset -c 2 sage main.sage bench ...`.
 
